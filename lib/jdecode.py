@@ -13,6 +13,8 @@ def mtg_open_json(fname, verbose = False):
     bsides = {}
 
     for k_set in jobj:
+        print(k_set)
+        if(k_set == "meta"): continue
         set = jobj[k_set]
         setname = set['name']
         if 'magicCardsInfoCode' in set:
