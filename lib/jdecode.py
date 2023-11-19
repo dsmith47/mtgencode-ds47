@@ -141,7 +141,8 @@ def mtg_open_file(fname, verbose = False,
     else:
         if verbose:
             print(('Opening encoded card file: ' + fname))
-        with open(fname, 'rt') as f:
+        #with open(fname, 'rt', encoding='utf-8') as f:
+        with open(fname, 'rt', encoding='windows-1252') as f:
             text = f.read()
         for card_src in text.split(utils.cardsep):
             if card_src:
@@ -153,7 +154,8 @@ def mtg_open_file(fname, verbose = False,
                 elif card.parsed:
                     invalid += 1
                     if verbose:
-                        print(('Invalid card: ' + json_cardname))
+                        #print(('Invalid card: ' + json_cardname))
+                        print(('Invalid card: ' + card.__dict__['name']))
                 else:
                     unparsed += 1
 

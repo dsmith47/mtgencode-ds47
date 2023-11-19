@@ -119,7 +119,8 @@ def main(fname, oname = None, verbose = True, encoding = 'std',
             else:
                 fstring = card.format(gatherer = gatherer, for_forum = for_forum,
                                       vdump = vdump, for_html = for_html)
-                writer.write((fstring + '\n').encode('utf-8'))
+                #writer.write((fstring + '\n').encode('utf-8'))
+                writer.write(fstring + '\n')
 
             if creativity:
                 cstring = '~~ closest cards ~~\n'
@@ -134,7 +135,8 @@ def main(fname, oname = None, verbose = True, encoding = 'std',
                     cstring = ('\n\n' + cstring[:-1]).replace('\n', '\n\t\t')
                 writer.write(cstring.encode('utf-8'))
 
-            writer.write('\n'.encode('utf-8'))
+            #writer.write('\n'.encode('utf-8'))
+            writer.write('\n')
 
         if for_mse:
             # more formatting info
